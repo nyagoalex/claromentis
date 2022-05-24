@@ -16,6 +16,11 @@ function classNames(...classes) {
 }
 
 const Layout = ({ children }) =>  {
+    const pathname = window.location.pathname
+
+    function isActive(url) {
+        return pathname.substr(1).startsWith(url.substr(1))
+    }
 
     return (
         <main className="flex  justify-center">
@@ -36,7 +41,7 @@ const Layout = ({ children }) =>  {
                                                     key={item.name}
                                                     href={item.href}
                                                     className={classNames(
-                                                        item.current
+                                                        isActive(item.href)
                                                             ? 'border-indigo-500 text-gray-900'
                                                             : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                                                         'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
