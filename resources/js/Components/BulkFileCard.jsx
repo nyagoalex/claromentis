@@ -9,7 +9,7 @@ const BulkFileCard = ({file}) => {
                         {file.reference_number}
                     </div>
                     <div className="pt-4 text-2xl font-medium text-gray-700">
-                        GBP 67,000
+                        GBP {file.expenses_sum_amount}
                     </div>
                 </div>
                 <div className=" text-xs font-mono text-gray-400">

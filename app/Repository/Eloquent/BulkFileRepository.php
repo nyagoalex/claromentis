@@ -18,6 +18,7 @@ class BulkFileRepository extends BaseRepository implements BulkFileRepositoryInt
     {
         return QueryBuilder::for(BulkFile::query())
             ->select(['id', 'reference_number',  'rows', 'created_at'])
+            ->withSum('expenses', 'amount')
             ->allowedFilters([AllowedFilter::partial('search', 'reference_number')])
             ->defaultSort('-created_at')
             ->allowedSorts('created_at', 'rows')
